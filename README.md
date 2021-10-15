@@ -24,7 +24,7 @@ This is a demonstration of how to integrate Stripe Payment Gateway to a React Pr
 
 ### See the Changes Visually
 
-Visit: ``localhost:8282`` in you browser.
+Visit: ``localhost:3000`` in you browser if it automatically does not open.
 
 # Contact ME:
 

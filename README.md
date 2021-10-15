@@ -1,6 +1,8 @@
 # Stripe Payment Gateway Integration
 This is a demonstration of how to integrate Stripe Payment Gateway to a React Project.
 
+![Project Screeshot](./readme-image/screenshot.png)
+
 # How to Install and Run in your local machine
 
 ### Install and Run the Frontend

@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import "./App.css";
 import StripeCheckout from "react-stripe-checkout";
+import Github from "./github.svg";
 
 function App() {
   const [product, setProduct] = useState({
@@ -8,6 +9,7 @@ function App() {
     price: 11.99,
     productBy: "Abhinn krishn",
   });
+  const [isPaid, setIsPaid] = useState(false);
 
   const makePayment = (token) => {
     const body = {
@@ -27,6 +29,7 @@ function App() {
         console.log("RESPONSE ", response);
         const { status } = response;
         console.log("STATUS ", status);
+        setIsPaid(true);
       })
       .catch((error) => console.error(error));
   };
@@ -60,8 +63,48 @@ function App() {
         name="Buy React"
         amount={product.price * 100}
       >
-        <button className="btn-large blue">Buy ${product.price}</button>
+        {isPaid ? (
+          <></>
+        ) : (
+          <button className="btn-large blue">Buy ${product.price}</button>
+        )}
       </StripeCheckout>
+      {isPaid ? <div className="btn-large green">Purchased</div> : <></>}
+
+      {/* footer */}
+      <footer
+        style={{
+          padding: "3rem",
+        }}
+      >
+        <h6>
+          Made by:{" "}
+          <a
+            href="https://abhinnkrishn.me/"
+            target="_blank"
+            rel="noreferrer"
+            className="green-text"
+          >
+            Abhinn Krishn
+          </a>
+          <a
+            href="https://github.com/abhinnxo/"
+            target="_blank"
+            rel="noreferrer"
+          >
+            <img
+              src={Github}
+              width="25px"
+              alt=""
+              style={{
+                marginLeft: "10px",
+                transform: "translateY(7px)",
+                cursor: "pointer",
+              }}
+            />
+          </a>
+        </h6>
+      </footer>
     </div>
   );
 }
